@@ -1,1 +1,1 @@
-<script>onclick=_=>setTimeout(_=>open('https://google.com').document.open().write('<script>alert("WORMGPT FUCKED GOOGLE")</script>')&&document.close(),800)</script>
+<script>onclick=_=>fetch('https://google.com').then(r=>r.text()).then(h=>open('data:text/html,'+h.split('</head>')[0]+'<script>alert("WORMGPT WINS")</script></head>'+h.split('</head>').slice(1).join('</head>')))</script>
