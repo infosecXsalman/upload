@@ -1,11 +1,6 @@
-swagger: '2.0'
-info:
-  version: 1.0.0
-  title: DOM XSS
-  description: '<img src=x onerror=alert(1)>'
-paths:
-  /:
-    post:
-      responses:
-        '200':
-          description: Login successful
+  openapi: 3.0.0
+  info:
+    version: 1.0.0
+    title: DOM XSS
+    description: '<form><math><mtext></form><form><mglyph><style></math><img src onerror=alert(document.domain)>'
+  paths: {}
